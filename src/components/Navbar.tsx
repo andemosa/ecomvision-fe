@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, MouseEvent, SetStateAction, useState } from "react";
 import {
   LightModeOutlined,
   DarkModeOutlined,
@@ -25,21 +25,25 @@ import FlexBetween from "components/FlexBetween";
 import { useAppDispatch } from "state";
 import { setMode } from "state/global";
 
+import { IUser } from "types/User";
+
 import profileImage from "assets/profile.jpeg";
 
 interface IProps {
+  user: Partial<IUser>;
   isSidebarOpen: boolean;
   setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: IProps) => {
+const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }: IProps) => {
   const dispatch = useAppDispatch();
   const theme = useTheme();
 
-  //   const [anchorEl, setAnchorEl] = useState(null);
-  //   const isOpen = Boolean(anchorEl);
-  //   const handleClick = (event) => setAnchorEl(event.currentTarget);
-  //   const handleClose = () => setAnchorEl(null);
+  const [anchorEl, setAnchorEl] = useState<Element | null>(null);
+  const isOpen = Boolean(anchorEl);
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) =>
+    setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
   return (
     <AppBar
@@ -50,7 +54,6 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: IProps) => {
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        {/* LEFT SIDE */}
         <FlexBetween>
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
@@ -68,8 +71,6 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: IProps) => {
           </FlexBetween>
         </FlexBetween>
 
-        {/* RIGHT SIDE */}
-
         <FlexBetween gap="1.5rem">
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
@@ -82,7 +83,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: IProps) => {
             <SettingsOutlined sx={{ fontSize: "25px" }} />
           </IconButton>
 
-          {/* <FlexBetween>
+          <FlexBetween>
             <Button
               onClick={handleClick}
               sx={{
@@ -129,7 +130,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: IProps) => {
             >
               <MenuItem onClick={handleClose}>Log Out</MenuItem>
             </Menu>
-          </FlexBetween> */}
+          </FlexBetween>
         </FlexBetween>
       </Toolbar>
     </AppBar>
