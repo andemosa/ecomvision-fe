@@ -7,6 +7,11 @@ import { BrowserRouter, Routes } from "react-router-dom";
 import Dashboard from "pages/dashboard";
 import Layout from "pages/layout";
 import Products from "pages/products";
+import Customers from "pages/customers";
+import Transactions from "pages/transactions";
+import Geography from "pages/geography";
+import Overview from "pages/overview";
+import Daily from "pages/daily";
 
 import { useAppSelector } from "state";
 
@@ -26,6 +31,12 @@ function App() {
             <Route path="/" element={<Navigate to={"/dashboard"} replace />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/geography" element={<Geography />} />
+            <Route path="/overview" element={<Overview />} />
+            <Route path="/daily" element={<Daily />} />
           </Route>
         </Routes>
       </ThemeProvider>
