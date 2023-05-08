@@ -65,7 +65,7 @@ const Product = ({
         timeout="auto"
         unmountOnExit
         sx={{
-          color: theme.palette.neutral[300],
+          color: "#ffe3a3",
         }}
       >
         <CardContent>

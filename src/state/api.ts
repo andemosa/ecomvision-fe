@@ -30,7 +30,7 @@ export const api = createApi({
       query: () => "client/products",
       providesTags: ["Products"],
     }),
-    getCustomers: build.query<ICustomer, void>({
+    getCustomers: build.query<ICustomer[], void>({
       query: () => "client/customers",
       providesTags: ["Customers"],
     }),

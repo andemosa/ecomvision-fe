@@ -116,7 +116,7 @@ const Dashboard = () => {
           component={"div"}
           gridColumn="span 8"
           gridRow="span 2"
-          backgroundColor={theme.palette.background.paper}
+          bgcolor={theme.palette.background.paper}
           p="1rem"
           borderRadius="0.55rem"
         >
@@ -183,9 +183,10 @@ const Dashboard = () => {
           />
         </Box>
         <Box
+          component={"div"}
           gridColumn="span 4"
           gridRow="span 3"
-          backgroundColor={theme.palette.background.paper}
+          bgcolor={theme.palette.background.paper}
           p="1.5rem"
           borderRadius="0.55rem"
         >

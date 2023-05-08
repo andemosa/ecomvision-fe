@@ -1,5 +1,5 @@
 import { Box, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridRenderCellParams } from "@mui/x-data-grid";
 
 import { useGetCustomersQuery } from "state/api";
 
@@ -29,7 +29,7 @@ const Customers = () => {
       field: "phoneNumber",
       headerName: "Phone Number",
       flex: 0.5,
-      renderCell: ({ value }: { value: string }) => {
+      renderCell: ({ value }: GridRenderCellParams<string>) => {
         return value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
       },
     },
@@ -84,7 +84,7 @@ const Customers = () => {
         <DataGrid
           loading={isLoading || !data}
           getRowId={(row) => row._id}
-          rows={data || []}
+          rows={data ? data : []}
           columns={columns}
         />
       </Box>

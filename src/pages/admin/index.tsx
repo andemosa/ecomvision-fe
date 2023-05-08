@@ -65,7 +65,7 @@ const Admin = () => {
             borderBottom: "none",
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: theme.palette.background.alt,
+            backgroundColor: theme.palette.background.paper,
             color: theme.palette.secondary[100],
             borderBottom: "none",
           },
@@ -73,7 +73,7 @@ const Admin = () => {
             backgroundColor: theme.palette.primary.light,
           },
           "& .MuiDataGrid-footerContainer": {
-            backgroundColor: theme.palette.background.alt,
+            backgroundColor: theme.palette.background.paper,
             color: theme.palette.secondary[100],
             borderTop: "none",
           },
@@ -85,7 +85,7 @@ const Admin = () => {
         <DataGrid
           loading={isLoading || !data}
           getRowId={(row) => row._id}
-          rows={data || []}
+          rows={data ? data : []}
           columns={columns}
           components={{
             ColumnMenu: CustomColumnMenu,

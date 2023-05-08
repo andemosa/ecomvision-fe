@@ -14,6 +14,7 @@ const StatBox = ({ title, value, increase, icon, description }: IProps) => {
   const theme = useTheme();
   return (
     <Box
+      component={"div"}
       gridColumn="span 2"
       gridRow="span 1"
       display="flex"
@@ -21,7 +22,7 @@ const StatBox = ({ title, value, increase, icon, description }: IProps) => {
       justifyContent="space-between"
       p="1.25rem 1rem"
       flex="1 1 100%"
-      backgroundColor={theme.palette.background.alt}
+      bgcolor={theme.palette.background.paper}
       borderRadius="0.55rem"
     >
       <FlexBetween>
